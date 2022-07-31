@@ -4,7 +4,7 @@
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generates colors deterministically based on a seed.",
   "author": "dylanbr0wn",
   "type": "module",
