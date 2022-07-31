@@ -25,5 +25,9 @@
   },
   "dependencies": {
     "hsluv": "^0.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dylanbr0wn/determinatic.git"
   }
 }
