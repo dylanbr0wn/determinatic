@@ -1,6 +1,6 @@
-# Destined
+# Determinatic
 
-A small library to deterministically generate colors based on a seed, almost if they were.. **destined**. 😉
+A small library to deterministically generate colors based on a seed.
 
 This is essentially a modular version of [autumn](https://github.com/nluqo/autumn/).
 
@@ -9,13 +9,13 @@ This is essentially a modular version of [autumn](https://github.com/nluqo/autum
 Install the library
 
 ```bash
-npm install destined
+npm install determinatic
 ```
 
 Then import it into your project and use it.
 
 ```js
-import destined from "destined";
+import { determinatic } from "determinatic";
 
-const colors = destined("my-seed"); //
+const color = determinatic("my-seed"); //#d2b50a
 ```
