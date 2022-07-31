@@ -1,17 +1,24 @@
 {
-  "name": "vibrate",
+  "name": "destined",
   "packageManager": "yarn@3.2.2",
   "source": "src/index.ts",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "version": "0.1.0",
+  "description": "Generates colors deterministically based on a seed.",
+  "author": "dylanbr0wn",
   "scripts": {
     "build": "parcel build src/index.ts",
     "check": "tsc --noEmit",
-    "ci": "yarn build && yarn check"
+    "lint": "eslint .",
+    "ci": "yarn lint && yarn build && yarn check"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.6.2",
     "@parcel/transformer-typescript-types": "2.6.2",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
     "parcel": "^2.6.2",
     "typescript": "^4.7.4"
   },

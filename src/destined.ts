@@ -1,7 +1,7 @@
 import { hpluvToHex, hsluvToHex } from "hsluv";
 import { ColorProfiles, Input, InputOptions, OutputOptions } from "./types";
 
-let colorProfiles: ColorProfiles = {
+const colorProfiles: ColorProfiles = {
   default: ["husl", 90, 100, 50, 85],
   dark: ["husl", 80, 100, 30, 60],
   light: ["husl", 70, 100, 60, 90],
@@ -13,7 +13,7 @@ let colorProfiles: ColorProfiles = {
   greyscale: ["hsl", 0, 0, 15, 85],
 };
 
-var defaultOptions: OutputOptions = {
+const defaultOptions: OutputOptions = {
   colorProfile: "default",
   hueCenter: 0,
   hueScale: 1,
@@ -21,7 +21,7 @@ var defaultOptions: OutputOptions = {
   primeWalkHueDistance: 223,
 };
 
-function Vibrate(input: Input, inputOptions?: InputOptions) {
+function Destined(input: Input, inputOptions?: InputOptions) {
   let options: OutputOptions;
 
   //equivalent to java hashcode implementation
@@ -54,8 +54,8 @@ function Vibrate(input: Input, inputOptions?: InputOptions) {
       }
 
       let res: number, f: number, i: number;
-      let bases = [3, 5, 7];
-      let results: number[] = [];
+      const bases = [3, 5, 7];
+      const results: number[] = [];
 
       for (let j = 0; j < bases.length; j++) {
         res = 0;
@@ -93,13 +93,13 @@ function Vibrate(input: Input, inputOptions?: InputOptions) {
     //center hue
     if (random1 >= 180) random1 -= 360;
 
-    var profile = colorProfiles[options.colorProfile]!;
+    const profile = colorProfiles[options.colorProfile]!;
 
-    var h = ((random1 % 360) * options.hueScale + options.hueCenter) % 360;
+    let h = ((random1 % 360) * options.hueScale + options.hueCenter) % 360;
 
-    var s = ((random2 % 100) / 100) * (profile[2] - profile[1]) + profile[1];
+    let s = ((random2 % 100) / 100) * (profile[2] - profile[1]) + profile[1];
 
-    var l = ((random3 % 100) / 100) * (profile[4] - profile[3]) + profile[3];
+    let l = ((random3 % 100) / 100) * (profile[4] - profile[3]) + profile[3];
 
     if (h < 0) h += 360;
     if (s < 0) s += 100;
@@ -113,9 +113,9 @@ function Vibrate(input: Input, inputOptions?: InputOptions) {
   }
 
   function _init(_options?: InputOptions) {
-    let newOptions = { ...defaultOptions, ...(_options ?? {}) };
+    const newOptions = { ...defaultOptions, ...(_options ?? {}) };
 
-    let colorProfile = newOptions.colorProfile;
+    const colorProfile = newOptions.colorProfile;
 
     if (typeof colorProfile === "string") {
       options = {
@@ -130,7 +130,7 @@ function Vibrate(input: Input, inputOptions?: InputOptions) {
   }
 
   function _getColorOutput(h: number, s: number, l: number) {
-    var profile = colorProfiles[options.colorProfile];
+    const profile = colorProfiles[options.colorProfile];
 
     if (!profile) throw new Error("Color profile not found");
 
@@ -143,7 +143,7 @@ function Vibrate(input: Input, inputOptions?: InputOptions) {
     }
   }
   function _getColor(key: Input) {
-    var hsl = _getHslComponents(key);
+    const hsl = _getHslComponents(key);
     return _getColorOutput(hsl.h, hsl.s, hsl.l);
   }
   // function getGradientColors(key: string | number, lightnessSpread?: number) {
@@ -163,4 +163,4 @@ function Vibrate(input: Input, inputOptions?: InputOptions) {
   return _getColor(input);
 }
 
-export default Vibrate;
+export default Destined;
