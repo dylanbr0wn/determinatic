@@ -1,4 +1,7 @@
-import { hpluvToHex, hsluvToHex } from "hsluv";
+import hsluv from "hsluv";
+
+const { hpluvToHex, hsluvToHex } = hsluv;
+
 import { ColorProfiles, Input, InputOptions, OutputOptions } from "./types";
 
 const colorProfiles: ColorProfiles = {
@@ -21,7 +24,7 @@ const defaultOptions: OutputOptions = {
   primeWalkHueDistance: 223,
 };
 
-function Destined(input: Input, inputOptions?: InputOptions) {
+function Determinatic(input: Input, inputOptions?: InputOptions) {
   let options: OutputOptions;
 
   //equivalent to java hashcode implementation
@@ -163,4 +166,4 @@ function Destined(input: Input, inputOptions?: InputOptions) {
   return _getColor(input);
 }
 
-export default Destined;
+export default Determinatic;
