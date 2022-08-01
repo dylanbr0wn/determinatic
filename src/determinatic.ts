@@ -61,20 +61,22 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
       const results: number[] = [];
 
       for (let j = 0; j < bases.length; j++) {
+        const base = bases[j];
+
         res = 0;
-        f = 1 / bases[j]!;
+        f = 1 / base;
         i = key;
         while (i > 0) {
-          res = res + f * (i % bases[j]!);
-          i = Math.floor(i / bases[j]!);
-          f = f / bases[j]!;
+          res = res + f * (i % base);
+          i = Math.floor(i / base);
+          f = f / base;
         }
         results.push(res);
       }
 
-      random1 = results[0]! * 360;
-      random2 = results[1]! * 100;
-      random3 = results[2]! * 100;
+      random1 = results[0] * 360;
+      random2 = results[1] * 100;
+      random3 = results[2] * 100;
     } else {
       //repeats exactly every 359*101*103 = 3,734,677
 
@@ -96,7 +98,7 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
     //center hue
     if (random1 >= 180) random1 -= 360;
 
-    const profile = colorProfiles[options.colorProfile]!;
+    const profile = colorProfiles[options.colorProfile];
 
     let h = ((random1 % 360) * options.hueScale + options.hueCenter) % 360;
 
@@ -166,4 +168,4 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
   return _getColor(input);
 }
 
-export default Determinatic;
+export { Determinatic };

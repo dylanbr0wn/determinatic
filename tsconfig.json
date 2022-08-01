@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
+    "module": "ESNext",
     "target": "esnext",
     "lib": [
       "ES2015"
@@ -8,6 +8,7 @@
     "moduleResolution": "node",
     "declaration": true,
     "outDir": "./dist",
+    "checkJs": false,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -23,6 +24,6 @@
   },
   "include": [
     "src/**/*",
-    "test/**/*"
+    "test/**/*",
   ]
 }
