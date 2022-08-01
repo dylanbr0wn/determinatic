@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "ES6",
+    "module": "CommonJS",
+    "target": "esnext",
     "lib": [
       "ES2015"
     ],
+    "moduleResolution": "node",
     "declaration": true,
     "outDir": "./dist",
-    "isolatedModules": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "sourceMap": true,
@@ -22,6 +22,7 @@
     "skipLibCheck": true,
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "test/**/*"
   ]
 }
