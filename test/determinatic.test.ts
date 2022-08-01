@@ -1,4 +1,4 @@
-import { Determinatic } from "../src";
+import { Determinatic, Input } from "../src";
 
 describe("getColor", () => {
   const determinatic = Determinatic();
@@ -60,17 +60,18 @@ describe("getColor", () => {
   });
 
   test("throw error on undefined input", () => {
-    // @ts-ignore
-    expect(() => determinatic.getColor(undefined)).toThrow();
+    expect(() =>
+      determinatic.getColor(undefined as unknown as Input)
+    ).toThrow();
   });
 
   test("throw error on null input", () => {
-    // @ts-ignore
-    expect(() => determinatic.getColor(null)).toThrow();
+    expect(() => determinatic.getColor(null as unknown as Input)).toThrow();
   });
 
   test("throw error on object input", () => {
-    // @ts-ignore
-    expect(() => determinatic.getColor({ foo: "bar" })).toThrow();
+    expect(() =>
+      determinatic.getColor({ foo: "bar" } as unknown as Input)
+    ).toThrow();
   });
 });
