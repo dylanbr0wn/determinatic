@@ -79,17 +79,6 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
       random3 = results[2] * 100;
     } else {
       //repeats exactly every 359*101*103 = 3,734,677
-
-      //167:	~1/2
-      //223:	~-1/3	(roughly golden ratio conjugate; 359*.618 = 221.86
-      //127:	~1/3
-      //97:	~1/4
-      //83:	~1/5
-      //53:	~1/6
-      //29:	~1/12
-      //17:	~1/24
-      //11:	~1/36
-
       random1 = ((key * options.primeWalkHueDistance) % 359) * (360 / 359);
       random2 = ((key * 13) % 101) * (100 / 101);
       random3 = ((key * 19) % 103) * (100 / 103);
