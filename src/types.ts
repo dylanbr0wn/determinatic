@@ -33,3 +33,7 @@ export type OutputOptions = Overwrite<
 >;
 
 export type Input = string | number;
+
+export type IDeterminatic = {
+  getColor(input: Input): string | undefined;
+};

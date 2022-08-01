@@ -2,7 +2,13 @@ import hsluv from "hsluv";
 
 const { hpluvToHex, hsluvToHex } = hsluv;
 
-import { ColorProfiles, Input, InputOptions, OutputOptions } from "./types";
+import {
+  ColorProfiles,
+  IDeterminatic,
+  Input,
+  InputOptions,
+  OutputOptions,
+} from "./types";
 
 const colorProfiles: ColorProfiles = {
   default: ["husl", 90, 100, 50, 85],
@@ -24,21 +30,21 @@ const defaultOptions: OutputOptions = {
   primeWalkHueDistance: 223,
 };
 
-function Determinatic(input: Input, inputOptions?: InputOptions) {
-  let options: OutputOptions;
-
-  //equivalent to java hashcode implementation
-  function _hashCode(key: string) {
-    let hash = 0,
-      character: number,
-      i: number;
-    for (i = 0; i < key.length; i++) {
-      character = key.charCodeAt(i);
-      hash = (hash << 5) - hash + character;
-      hash = hash & hash;
-    }
-    return hash;
+//equivalent to java hashcode implementation
+function hashCode(key: string) {
+  let hash = 0,
+    character: number,
+    i: number;
+  for (i = 0; i < key.length; i++) {
+    character = key.charCodeAt(i);
+    hash = (hash << 5) - hash + character;
+    hash = hash & hash;
   }
+  return hash;
+}
+
+const Determinatic = function (inputOptions?: InputOptions) {
+  let options: OutputOptions;
 
   function _getHslComponents(key: Input) {
     let random1: number, random2: number, random3: number;
@@ -47,7 +53,7 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
       if (!isNaN(Number(key))) {
         key = Number(key);
       } else {
-        key = _hashCode(key);
+        key = hashCode(key);
       }
     }
 
@@ -126,7 +132,7 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
   function _getColorOutput(h: number, s: number, l: number) {
     const profile = colorProfiles[options.colorProfile];
 
-    if (!profile) throw new Error("Color profile not found");
+    if (!profile) s;
 
     if (profile[0] === "hsl") {
       return "hsl(" + h + "," + s + "%," + l + "%)";
@@ -136,25 +142,17 @@ function Determinatic(input: Input, inputOptions?: InputOptions) {
       return hpluvToHex([h, s, l]);
     }
   }
-  function _getColor(key: Input) {
+  function getColor(this: IDeterminatic, key: Input) {
+    if (typeof key !== "string" && typeof key !== "number")
+      throw new Error("key must be a string or number");
     const hsl = _getHslComponents(key);
     return _getColorOutput(hsl.h, hsl.s, hsl.l);
   }
-  // function getGradientColors(key: string | number, lightnessSpread?: number) {
-  // 	if (lightnessSpread === undefined) {
-  // 		lightnessSpread = 30;
-  // 	}
-
-  // 	var hsl = _getHslComponents(key);
-
-  // 	return [
-  // 		_getColorOutput(hsl.h, hsl.s, Math.min(100, hsl.l + lightnessSpread / 2)),
-  // 		_getColorOutput(hsl.h, hsl.s, Math.max(0, hsl.l - lightnessSpread / 2)),
-  // 	];
-  // }
 
   _init(inputOptions);
-  return _getColor(input);
-}
+  return {
+    getColor,
+  };
+};
 
 export { Determinatic };
