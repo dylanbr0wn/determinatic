@@ -1,6 +1,7 @@
 # Determinatic
 
-### 🚧 This is a work in progress!🚧  
+### 🚧 This is a work in progress!🚧
+
 I have yet to settle on an API for this library, so use at your own risk.
 
 ## What is this
