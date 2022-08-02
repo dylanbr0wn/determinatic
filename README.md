@@ -23,5 +23,9 @@ Then import it into your project and use it.
 ```js
 import { determinatic } from "determinatic";
 
-const color = determinatic("my-seed"); //#d2b50a
+const determinatic = determinatic({
+  /* options */
+});
+
+determinatic.getColor("my-seed"); //#d2b50a
 ```
