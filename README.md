@@ -10,6 +10,8 @@ A small library to deterministically generate colors based on a seed.
 
 This is essentially a modular version of [autumn](https://github.com/nluqo/autumn/).
 
+Written in TS 🤤.
+
 ## Usage
 
 Install the library
