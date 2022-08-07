@@ -4,9 +4,9 @@
 
 A small library to deterministically generate colors based on a seed.
 
-This is essentially a modular version of [autumn](https://github.com/nluqo/autumn/).
+This is essentially a library version of [autumn](https://github.com/nluqo/autumn/).
 
-Written in TS 🤤.
+Written in TS for all that type safety goodness🤤.
 
 ## Usage
 
@@ -19,9 +19,9 @@ npm install determinatic
 Then import it into your project and use it.
 
 ```js
-import { determinatic } from "determinatic";
+import { Determinatic } from "determinatic";
 
-const determinatic = determinatic({
+const determinatic = Determinatic({
   /* options */
 });
 
