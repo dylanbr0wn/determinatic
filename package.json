@@ -1,7 +1,7 @@
 {
   "name": "determinatic",
-  "main": "dist/determinatic.js",
-  "module": "dist/determinatic.mjs",
+  "main": "dist/determinatic",
+  "module": "dist/determinatic",
   "typings": "dist/determinatic.d.ts",
   "version": "0.0.0-development",
   "description": "Generates colors deterministically based on a seed.",
