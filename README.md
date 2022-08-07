@@ -6,7 +6,7 @@ A small library to deterministically generate colors based on a seed.
 
 This is essentially a library version of [autumn](https://github.com/nluqo/autumn/).
 
-Written in TS for all that type safety goodness🤤.
+Written in TS for all that type safety goodnesss 🤤.
 
 ## Usage
 
