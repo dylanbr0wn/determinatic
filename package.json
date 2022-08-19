@@ -2,11 +2,10 @@
   "name": "determinatic",
   "main": "./dist/determinatic.cjs.js",
   "module": "./dist/determinatic.es.js",
-  "typings": "./dist/determinatic.d.ts",
+  "types": "./dist/determinatic.d.ts",
   "version": "0.0.0-development",
   "description": "Generates colors deterministically based on a seed.",
   "author": "dylanbr0wn",
-  "type": "module",
   "scripts": {
     "build": "rollup -c",
     "check": "tsc --noEmit",
