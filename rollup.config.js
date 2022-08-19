@@ -19,12 +19,12 @@ export default [
     })],
     output: [
       {
-        file: `${name}.cjs.js`,
+        file: `dist/${name}.cjs.js`,
         format: "cjs",
         sourcemap: true,
       },
       {
-        file: `${name}.es.js`,
+        file: `dist/${name}.es.js`,
         format: "es",
         sourcemap: true,
       },
@@ -33,7 +33,7 @@ export default [
   bundle({
     plugins: [dts()],
     output: {
-      file: `${name}.d.ts`,
+      file: `dist/${name}.d.ts`,
       format: "es",
     },
   }),
