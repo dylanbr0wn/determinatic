@@ -1,6 +1,6 @@
 {
   "name": "determinatic",
-  "main": "dist/determinatic",
+  "main": "determinatic",
   "module": "dist/determinatic",
   "typings": "dist/determinatic.d.ts",
   "version": "0.0.0-development",
