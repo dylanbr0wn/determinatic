@@ -18,7 +18,7 @@ npm install determinatic
 
 Then import it into your project and use it.
 
-```js
+```ts
 import { Determinatic } from "determinatic";
 
 const determinatic = Determinatic({
