@@ -19,13 +19,12 @@ export default [
     })],
     output: [
       {
-        file: `./dist/${name}.cjs.js`,
+        file: `./dist/${name}.js`,
         format: "cjs",
-        exports: 'named',
         sourcemap: true,
       },
       {
-        file: `./dist/${name}.es.js`,
+        file: `./dist/${name}.mjs`,
         format: "es",
         sourcemap: true,
       },

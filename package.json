@@ -1,7 +1,7 @@
 {
   "name": "determinatic",
-  "main": "./dist/determinatic.cjs.js",
-  "module": "./dist/determinatic.es.js",
+  "main": "./dist/determinatic.js",
+  "module": "./dist/determinatic.mjs",
   "types": "./dist/determinatic.d.ts",
   "version": "0.0.0-development",
   "description": "Generates colors deterministically based on a seed.",
@@ -34,6 +34,11 @@
   "dependencies": {
     "hsluv": "^0.1.0"
   },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.map",
+    "dist/*.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/dylanbr0wn/determinatic.git"
