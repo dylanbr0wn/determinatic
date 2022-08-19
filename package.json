@@ -1,18 +1,18 @@
 {
   "name": "determinatic",
-  "main": "./dist/determinatic.js",
-  "module": "./dist/determinatic.mjs",
-  "types": "./dist/determinatic.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "version": "0.0.0-development",
   "description": "Generates colors deterministically based on a seed.",
   "author": "dylanbr0wn",
+  "license": "MIT",
   "scripts": {
-    "build": "rollup -c",
+    "build": "tsup src",
     "check": "tsc --noEmit",
     "lint": "eslint .",
-    "ci": "pnpm install && pnpm lint && pnpm test && pnpm clean && pnpm build && pnpm check",
+    "ci": "pnpm install && pnpm lint && pnpm test && pnpm build && pnpm check",
     "test": "jest",
-    "clean": "rm -rf ./dist",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
@@ -26,18 +26,17 @@
     "rollup": "^2.77.2",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-esbuild": "^4.9.1",
+    "semantic-release": "^19.0.3",
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
-    "typescript": "^4.7.4",
-    "semantic-release": "^19.0.3"
+    "tsup": "^6.2.2",
+    "typescript": "^4.7.4"
   },
   "dependencies": {
     "hsluv": "^0.1.0"
   },
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.map",
-    "dist/*.d.ts"
+    "dist"
   ],
   "repository": {
     "type": "git",
