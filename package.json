@@ -11,8 +11,9 @@
     "build": "rollup -c",
     "check": "tsc --noEmit",
     "lint": "eslint .",
-    "ci": "pnpm install && pnpm lint && pnpm test && pnpm build && pnpm check",
+    "ci": "pnpm install && pnpm lint && pnpm test && pnpm clean && pnpm build && pnpm check",
     "test": "jest",
+    "clean": "rm -rf ./dist",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
