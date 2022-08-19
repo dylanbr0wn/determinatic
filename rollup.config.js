@@ -1,7 +1,7 @@
 import dts from "rollup-plugin-dts";
 import esbuild from "rollup-plugin-esbuild";
 
-const name = require("./package.json").main.replace(/\.js$/, "");
+const name = require("./package.json").name.replace(/\.js$/, "");
 
 const bundle = (config) => ({
   ...config,
@@ -19,12 +19,12 @@ export default [
     })],
     output: [
       {
-        file: `${name}.cjs`,
+        file: `${name}.cjs.js`,
         format: "cjs",
         sourcemap: true,
       },
       {
-        file: `${name}.mjs`,
+        file: `${name}.es.js`,
         format: "es",
         sourcemap: true,
       },
